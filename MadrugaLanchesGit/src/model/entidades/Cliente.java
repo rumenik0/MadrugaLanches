@@ -17,7 +17,7 @@ import javax.persistence.*;
  */
 @Entity
 public class Cliente implements Serializable, Entidade {
-
+    
     /**
      * @return the endereco
      */

@@ -30,12 +30,13 @@ public abstract class AbstractDAO implements InterfaceDAO {
     
     
     @Override
-    public void alterar(Entidade e) {
+    public void alterarPorObjeto(Entidade e) {
         alterarPorObjeto(e,InstanciaJPA.getEntityManager(), true);
     }
     public void alterarPorObjeto(Entidade e, EntityManager pEM, boolean pFecharEM){
-	pEM.getTransaction().begin();
-	pEM.persist(e);
+	EntityTransaction transacao = pEM.getTransaction();
+        pEM.getTransaction().begin();
+	pEM.merge(e);
 	pEM.getTransaction().commit();
 	if( pFecharEM )
             pEM.close();

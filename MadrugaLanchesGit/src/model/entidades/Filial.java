@@ -22,7 +22,6 @@ public class Filial implements Serializable, Entidade{
     private int codigo;
     
     @ManyToOne
-    @Column(name = "ENDERECO")
     private Endereco endereco;
     
     @Column(name = "NOME")

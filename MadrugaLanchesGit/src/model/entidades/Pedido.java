@@ -24,22 +24,18 @@ public class Pedido implements Serializable, Entidade {
     private Integer codigo;
     
     @OneToOne
-    @Column(name = "ENTREGADOR_ID")
     private Entregador entregador;
     
     @OneToOne
-    @Column(name = "CLIENTE_ID")
     private Cliente cliente;
     
     @OneToMany
     private List<Item> itens;
     
     @OneToOne
-    @Column(name = "ENDERECO_ENTREGA_ID")
     private Endereco endereco;
     
     @OneToOne
-    @Column(name = "FILIAL_ID")
     private Filial filial;
     
     @Column(name = "VALOR_TOTAL")

@@ -23,7 +23,6 @@ public class Item implements Serializable, Entidade{
     private Integer codigo;
     
     @OneToOne
-    @Column(name = "PROD_ID")
     private Produto produto;
     
     @OneToMany
