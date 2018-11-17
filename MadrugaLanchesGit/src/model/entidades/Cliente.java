@@ -5,57 +5,69 @@
  */
 package model.entidades;
 
+import interfaces.Entidade;
 import java.io.Serializable;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import java.util.Date;
+import java.util.List;
+import javax.persistence.*;
 
 /**
  *
  * @author rumen
  */
 @Entity
-public class Cliente implements Serializable {
+public class Cliente implements Serializable, Entidade {
+
+    /**
+     * @return the endereco
+     */
+    public List<Endereco> getEndereco() {
+        return endereco;
+    }
+
+    /**
+     * @param endereco the endereco to set
+     */
+    public void setEndereco(List<Endereco> endereco) {
+        this.endereco = endereco;
+    }
     
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer Id;
+    @Column(name = "CODIGO")
+    private Integer codigo;
     
-    @Column(name = "CPF", length = 11)
-    private Integer cpf;
+    @ManyToMany
+    private List<Endereco> endereco;
     
-    @Column(name = "Nome", length = 80)
+    @Column(name = "NOME")
     private String nome;
     
+    @Column(name = "TELEFONE")
+    private String telefone;
     
+    @Column(name = "DATA_ATIVACAO")
+    private Date dataInicio;
+    
+    @Override
+    public Object getChave() {
+        return this.getCodigo();
+    }
+    
+
+    // GETTERS AND SETTERS
     /**
-     * @return the Id
+     * @return the codigo
      */
-    public Integer getId() {
-        return Id;
+    public Integer getCodigo() {
+        return codigo;
     }
 
     /**
-     * @param Id the Id to set
+     * @param codigo the codigo to set
      */
-    public void setId(Integer Id) {
-        this.Id = Id;
-    }
-
-    /**
-     * @return the cpf
-     */
-    public Integer getCpf() {
-        return cpf;
-    }
-
-    /**
-     * @param cpf the cpf to set
-     */
-    public void setCpf(Integer cpf) {
-        this.cpf = cpf;
+    public void setCodigo(Integer codigo) {
+        this.codigo = codigo;
     }
 
     /**
@@ -71,7 +83,34 @@ public class Cliente implements Serializable {
     public void setNome(String nome) {
         this.nome = nome;
     }
-    
-    
+
+    /**
+     * @return the telefone
+     */
+    public String getTelefone() {
+        return telefone;
+    }
+
+    /**
+     * @param telefone the telefone to set
+     */
+    public void setTelefone(String telefone) {
+        this.telefone = telefone;
+    }
+
+
+    /**
+     * @return the dataInicio
+     */
+    public Date getDataInicio() {
+        return dataInicio;
+    }
+
+    /**
+     * @param dataInicio the dataInicio to set
+     */
+    public void setDataInicio(Date dataInicio) {
+        this.dataInicio = dataInicio;
+    }
     
 }

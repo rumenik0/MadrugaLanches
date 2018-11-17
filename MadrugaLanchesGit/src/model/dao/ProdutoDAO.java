@@ -5,17 +5,10 @@
  */
 package model.dao;
 
-import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
-
-
-import model.entidades.Produto;
-
 /**
  *
- * @author Rumenik
+ * @author rumen
  */
-public class ProdutoDAO extends AbstractDAO {
-
+public class ProdutoDAO extends AbstractDAO{
+    
 }
