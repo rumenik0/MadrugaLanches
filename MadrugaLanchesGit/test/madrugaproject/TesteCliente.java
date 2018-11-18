@@ -22,13 +22,9 @@ public class TesteCliente {
     public static void main(String[] args) {
         EnderecoDAO endDAO = new EnderecoDAO();
         ArrayList<Endereco> end = new ArrayList<Endereco>();
-        end.add(new Endereco(51330260,"CASA", 66, "Rua 25, perto do canal"));
-        for (Endereco i :end){
-            endDAO.inserir(i);
-            System.out.println("insert endereco");
-        }
+        end.add(new Endereco(51330260,"IBURA","CASA", 66, "Rua 25, perto do canal"));
         Date dt = new Date(System.currentTimeMillis());
-        Cliente e = new Cliente(dt,end,"Rumenik Andrade","81996908623");
+        Cliente e = new Cliente(dt,end,"Rumenik Andrade","81979146365");
         ClienteDAO eDAO = new ClienteDAO();
         eDAO.inserir(e);
         System.out.println("insert");

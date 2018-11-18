@@ -14,30 +14,48 @@ import javax.persistence.*;
  */
 @Entity
 public class Endereco implements Serializable,Entidade{
+
+    /**
+     * @return the bairro
+     */
+    public String getBairro() {
+        return bairro;
+    }
+
+    /**
+     * @param bairro the bairro to set
+     */
+    public void setBairro(String bairro) {
+        this.bairro = bairro;
+    }
     public Endereco (){}
-    public Endereco (Integer cep, String logradouro, Integer numero, String referencia){
+    public Endereco (Integer cep,String bairro, String logradouro, Integer numero, String referencia){
         this.setCep(cep);
-        this.setLogradouro(logradouro);
+        this.setBairro(bairro);
         this.setNumero(numero);
+        this.setLogradouro(logradouro);
         this.setReferencia(referencia);
     }
     
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    //@Column(name = "CODIGO")
+    @Column(name = "CODIGO")
     private Integer codigo;
     
-    //@Column(name = "CEP")
+    @Column(name = "CEP")
     private Integer cep;
     
-    //@Column(name = "LOGRADOURO")
+    @Column(name = "LOGRADOURO")
     private String logradouro;
     
-    //@Column(name = "NUMERO")
+    @Column(name = "NUMERO")
     private Integer numero;
     
-    //@Column(name = "REFERENCIA")
+    @Column(name = "REFERENCIA")
     private String referencia;
+    
+    @Column(name = "BAIRRO")
+    private String bairro;
     
     @Override
     public Object getChave() {

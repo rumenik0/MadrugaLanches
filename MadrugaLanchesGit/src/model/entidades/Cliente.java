@@ -51,7 +51,7 @@ public class Cliente implements Serializable, Entidade {
     @Column(name = "NOME")
     private String nome;
     
-    @Column(name = "TELEFONE")
+    @Column(name = "TELEFONE", unique = true)
     private String telefone;
     
     @Column(name = "DATA_ATIVACAO")

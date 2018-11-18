@@ -16,7 +16,7 @@ import model.entidades.Endereco;
 public class TesteEndereco {
     public static void main(String [] args){
         EnderecoDAO eDAO = new EnderecoDAO();
-        Endereco e = new Endereco(51330270,"CASA", 35, "Esquina com a Rua 24");
+        Endereco e = new Endereco(51330270,"IBURA","CASA", 35, "Esquina com a Rua 24");
         eDAO.inserir(e);
         System.out.println("insert");
     
