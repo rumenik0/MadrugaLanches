@@ -5,6 +5,9 @@
  */
 package madrugaproject;
 
+import model.dao.ProdutoDAO;
+import model.entidades.Produto;
+
 /**
  *
  * @author rumen
@@ -12,14 +15,13 @@ package madrugaproject;
 public class TesteProduto {
     public static void main(String[] args) {
         // TODO code application logic here
-        /*Produto p = new Produto();
+        Produto p = new Produto();
         ProdutoDAO pd = new ProdutoDAO();
         
-        p.setCodigo(10);
-        pd.removerPorChave(p.getClass(), p.getChave());
+        //p.setCodigo(10);
+        //pd.removerPorChave(p.getClass(), p.getChave());
         
-        
-        p.setDescricao("Fecheio de pitu");
+        p.setDescricao("Recheio de pitu");
         p.setNome("COXINHA DE pitu");
         p.setPreco(3.00);
         pd.inserir(p);
@@ -28,6 +30,6 @@ public class TesteProduto {
         pd.alterarPorObjeto(p);
         System.out.println("alter");
         pd.removerPorObjeto(p);
-        System.out.println("delete");*/
+        System.out.println("delete");
     }
 }

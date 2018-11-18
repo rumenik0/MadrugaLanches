@@ -7,6 +7,8 @@ package model.entidades;
 
 import interfaces.Entidade;
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Date;
 import java.util.List;
 import javax.persistence.*;
@@ -17,18 +19,24 @@ import javax.persistence.*;
  */
 @Entity
 public class Cliente implements Serializable, Entidade {
-    
+    public Cliente (){}
+    public Cliente (Date dataInicio,ArrayList<Endereco> endereco,String nome,String telefone){
+        this.nome = nome;
+        this.endereco = endereco;
+        this.telefone = telefone;
+        this.dataInicio = dataInicio;
+    }
     /**
      * @return the endereco
      */
-    public List<Endereco> getEndereco() {
+    public Collection<Endereco> getEndereco() {
         return endereco;
     }
 
     /**
      * @param endereco the endereco to set
      */
-    public void setEndereco(List<Endereco> endereco) {
+    public void setEndereco(ArrayList<Endereco> endereco) {
         this.endereco = endereco;
     }
     
@@ -38,7 +46,7 @@ public class Cliente implements Serializable, Entidade {
     private Integer codigo;
     
     @ManyToMany
-    private List<Endereco> endereco;
+    private Collection<Endereco> endereco;
     
     @Column(name = "NOME")
     private String nome;

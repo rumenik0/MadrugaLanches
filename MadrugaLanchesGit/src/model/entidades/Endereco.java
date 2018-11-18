@@ -14,6 +14,13 @@ import javax.persistence.*;
  */
 @Entity
 public class Endereco implements Serializable,Entidade{
+    public Endereco (){}
+    public Endereco (Integer cep, String logradouro, Integer numero, String referencia){
+        this.setCep(cep);
+        this.setLogradouro(logradouro);
+        this.setNumero(numero);
+        this.setReferencia(referencia);
+    }
     
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -31,9 +38,6 @@ public class Endereco implements Serializable,Entidade{
     
     //@Column(name = "REFERENCIA")
     private String referencia;
-    
-    //@Column(name = "ALIAS_ENDERECO")
-    private String nome;
     
     @Override
     public Object getChave() {
@@ -109,20 +113,5 @@ public class Endereco implements Serializable,Entidade{
      */
     public void setReferencia(String referencia) {
         this.referencia = referencia;
-    }
-
-    /**
-     * @return the nome
-     */
-    public String getNome() {
-        return nome;
-    }
-
-    /**
-     * @param nome the nome to set
-     */
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
-    
+    }    
 }
