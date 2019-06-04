@@ -1,0 +1,59 @@
+<html	xmlns="http://www.w3.org/1999/xhtml"
+		xmlns:h="http://java.sun.com/jsf/html"
+		xmlns:f="http://java.sun.com/jsf/core">
+	<h:head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<title>Cadastro de um novo produto</title>
+	</h:head>
+	<h:body onload="#{produtoMB.carregarListaProdutos()}">
+		
+		<h1>Cadastro de produto</h1>
+		<h:form>
+                    <h:messages id="sucesso" showDetail="true"></h:messages>
+			<h:panelGrid columns="2">
+                                Código <h:inputText value="#{produtoMB.produto.codigo}" disabled="true"></h:inputText>
+				<br></br>
+				Nome <h:inputText value="#{produtoMB.produto.nome}"></h:inputText>
+				<br></br>
+				Descricao: <h:inputText value="#{produtoMB.produto.descricao}"></h:inputText>
+				<br></br>
+                                Preço <h:inputText value="#{produtoMB.produto.preco}"></h:inputText>
+				<br></br>       
+				<h:commandButton value="Enviar"	action="#{produtoMB.merge}"></h:commandButton>	
+                                <h:commandButton value="reset" action="#{produtoMB.reset}"/>
+			</h:panelGrid>
+		</h:form>
+		
+		<h2>Lista de produtos</h2>
+                <h:form>
+		<h:dataTable value="#{produtoMB.listaProdutos}" var="produto" border="1">
+			<h:column>
+				<f:facet name="header">Código</f:facet>
+				#{produto.codigo}
+			</h:column>
+			
+			<h:column>
+				<f:facet name="header">Nome</f:facet>
+				#{produto.nome}
+			</h:column>
+			
+			<h:column>
+				<f:facet name="header">Descrição</f:facet>
+				#{produto.descricao}
+			</h:column>
+			<h:column>
+				<f:facet name="header">Preço</f:facet>
+				#{produto.preco}
+			</h:column>                        
+                        <h:column>
+				<f:facet name="header">Atualizar</f:facet>                           
+                                <h:commandLink type="button" value="atualizar" actionListener="#{produtoMB.setProduto(produto)}" />        
+			</h:column>
+                        <h:column>
+				<f:facet name="header">Deletar</f:facet>                           
+                                <h:commandLink type="button" value="deletar" actionListener="#{produtoMB.deletar(produto)}" />        
+			</h:column>
+		</h:dataTable>
+                </h:form>
+	</h:body>
+</html>

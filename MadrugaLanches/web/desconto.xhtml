@@ -1,0 +1,53 @@
+<html	xmlns="http://www.w3.org/1999/xhtml"
+		xmlns:h="http://java.sun.com/jsf/html"
+		xmlns:f="http://java.sun.com/jsf/core">
+	<h:head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<title>Cadastro de um novo desconto</title>
+	</h:head>
+	<h:body onload="#{descontoMB.carregarListaDescontos()}">
+		
+		<h1>Cadastro de desconto</h1>
+		<h:form>
+                    <h:messages id="sucesso" showDetail="true"></h:messages>
+			<h:panelGrid columns="2">
+                                Código <h:inputText value="#{descontoMB.desconto.codigo}" disabled="true"></h:inputText>
+				<br></br>
+				Motivo <h:inputText value="#{descontoMB.desconto.motivo}"></h:inputText>
+				<br></br>
+				Valor <h:inputText value="#{descontoMB.desconto.valor}"></h:inputText>
+				<br></br>                                     
+				<h:commandButton value="Enviar"	action="#{descontoMB.merge}"></h:commandButton>	
+                                <h:commandButton value="reset" action="#{descontoMB.reset}"/>
+			</h:panelGrid>
+		</h:form>
+		
+		<h2>Lista de descontos</h2>
+                <h:form>
+		<h:dataTable value="#{descontoMB.listaDescontos}" var="desconto" border="1">
+			<h:column>
+				<f:facet name="header">Código</f:facet>
+				#{desconto.codigo}
+			</h:column>
+			
+			<h:column>
+				<f:facet name="header">Nome</f:facet>
+				#{desconto.motivo}
+			</h:column>
+			
+			<h:column>
+				<f:facet name="header">Descrição</f:facet>
+				#{desconto.valor}
+			</h:column>                      
+                        <h:column>
+				<f:facet name="header">Atualizar</f:facet>                           
+                                <h:commandLink type="button" value="atualizar" actionListener="#{descontoMB.setDesconto(desconto)}" />        
+			</h:column>
+                        <h:column>
+				<f:facet name="header">Deletar</f:facet>                           
+                                <h:commandLink type="button" value="deletar" actionListener="#{descontoMB.deletar(desconto)}" />        
+			</h:column>
+		</h:dataTable>
+                </h:form>
+	</h:body>
+</html>

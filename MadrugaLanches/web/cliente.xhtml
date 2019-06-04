@@ -1,0 +1,94 @@
+<html	xmlns="http://www.w3.org/1999/xhtml"
+		xmlns:h="http://java.sun.com/jsf/html"
+		xmlns:f="http://java.sun.com/jsf/core">
+	<h:head>
+            
+        <link rel="stylesheet" href="https://bulma.io/css/bulma-docs.min.css?v=201811221212"></link>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+            
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<title>Cadastro de um novo cliente</title>
+	</h:head>
+	<h:body onload="#{clienteMB.carregarListaClientes()}">
+            <div id="form" style="width: 40%">
+		<h1>Cadastro de cliente</h1>
+                <br/>
+		<h:form class="col s12">
+                    <h:messages id="sucesso" showDetail="true"></h:messages>
+			<h:panelGrid columns="2">
+                            Código <h:inputText value="#{clienteMB.cliente.codigo}" disabled="true" class="input"></h:inputText>
+				<br></br>
+                                Nome <h:inputText value="#{clienteMB.cliente.nome}" class="input"></h:inputText>
+				<br></br>
+				Telefone: <h:inputText value="#{clienteMB.cliente.telefone}" class="input"></h:inputText>
+				<br></br>
+                                CEP: <h:inputText value="#{clienteMB.endereco.cep}" class="input"></h:inputText>
+				<br></br>
+                                Bairro: <h:inputText value="#{clienteMB.endereco.bairro}" class="input"></h:inputText>
+				<br></br>
+                                Logradouro: <h:inputText value="#{clienteMB.endereco.logradouro}" class="input"></h:inputText>
+				<br></br>
+                                Numero: <h:inputText value="#{clienteMB.endereco.numero}" class="input"></h:inputText>
+				<br></br>
+                                Referência: <h:inputText value="#{clienteMB.endereco.referencia}" class="input"></h:inputText>
+				<br></br>
+                                Senha: <h:inputText value="#{clienteMB.cliente.senha}" class="input"></h:inputText>
+                                
+				<h:commandButton value="Enviar"	action="#{clienteMB.merge}" class="button is-primary"></h:commandButton>	
+                                <h:commandButton value="reset" action="#{clienteMB.reset}" class="button is-primary"/>
+			</h:panelGrid>
+		</h:form>
+            </div>
+		<h4>Lista de clientes</h4>
+                <h:form>
+		<h:dataTable value="#{clienteMB.listaClientes}" var="cliente" border="1" >
+			<h:column>
+				<f:facet name="header">Código</f:facet>
+				#{cliente.codigo}
+			</h:column>
+			
+			<h:column>
+				<f:facet name="header">Nome</f:facet>
+				#{cliente.nome}
+			</h:column>
+			
+			<h:column>
+				<f:facet name="header">Telefone</f:facet>
+				#{cliente.telefone}
+			</h:column>
+			<h:column>
+				<f:facet name="header">Data de Inicio</f:facet>
+				#{cliente.dataInicio}
+			</h:column>
+                        <h:column>
+				<f:facet name="header">CEP</f:facet>
+				#{cliente.endereco.cep}
+			</h:column>
+                        <h:column>
+				<f:facet name="header">Bairro</f:facet>
+				#{cliente.endereco.bairro}
+			</h:column>
+                        <h:column>
+				<f:facet name="header">Logradouro</f:facet>
+				#{cliente.endereco.logradouro}
+			</h:column>
+                        <h:column>
+				<f:facet name="header">Número</f:facet>
+				#{cliente.endereco.numero}
+			</h:column>
+                        <h:column>
+				<f:facet name="header">Referência</f:facet>
+				#{cliente.endereco.referencia}
+			</h:column>
+                        <h:column>
+				<f:facet name="header">Atualizar</f:facet>                           
+                                <h:commandLink class="button is-primary" type="button" value="atualizar" actionListener="#{clienteMB.setCliente(cliente)}" />        
+			</h:column>
+                        <h:column>
+				<f:facet name="header">Deletar</f:facet>                           
+                                <h:commandLink class="button is-primary" type="button" value="deletar" actionListener="#{clienteMB.deletar(cliente)}" />        
+			</h:column>
+		</h:dataTable>
+                </h:form>
+	</h:body>
+</html>

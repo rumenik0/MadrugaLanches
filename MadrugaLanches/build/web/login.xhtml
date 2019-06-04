@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html	xmlns="http://www.w3.org/1999/xhtml"
+		xmlns:h="http://java.sun.com/jsf/html"
+		xmlns:f="http://java.sun.com/jsf/core">
+    <head>
+        <title>TODO supply a title</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    </head>
+    <h:body>
+        <center><font size="50" style="font-weight: bold;verdana">Login</font></center>
+        <hr />
+        <h:form acceptcharset="UTF-8">
+        <h:messages /><!-- tag responsavel para informar se ha erros -->
+        <h:panelGrid columns="2">
+        <h:outputLabel value="Telefone:" for="telefone" />
+        <h:inputText id="usuario" label="Usuario" value="#{clienteMB.cliente.telefone}" required="true"/>
+        <h:outputLabel value="Senha" for="senha" />
+        <h:inputSecret id="senha" label="Senha" value="#{clienteMB.cliente.senha}" required="true"/>
+        <h:outputText />
+        <h:commandButton action="#{clienteMB.login}" value="Entrar" />
+        </h:panelGrid>
+        </h:form>
+        <hr />
+    </h:body>
+</html>

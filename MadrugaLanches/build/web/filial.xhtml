@@ -1,0 +1,74 @@
+<html	xmlns="http://www.w3.org/1999/xhtml"
+		xmlns:h="http://java.sun.com/jsf/html"
+		xmlns:f="http://java.sun.com/jsf/core">
+	<h:head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<title>Cadastro de um novo filial</title>
+	</h:head>
+	<h:body onload="#{filialMB.carregarListaFiliais()}">
+		
+		<h1>Cadastro de filial</h1>
+		<h:form>
+                    <h:messages id="sucesso" showDetail="true"></h:messages>
+			<h:panelGrid columns="2">
+                                Código <h:inputText value="#{filialMB.filial.codigo}" disabled="true"></h:inputText>
+				<br></br>
+				Nome <h:inputText value="#{filialMB.filial.nome}"></h:inputText>
+				<br></br>
+                                CEP: <h:inputText value="#{filialMB.endereco.cep}"></h:inputText>
+				<br></br>
+                                Bairro: <h:inputText value="#{filialMB.endereco.bairro}"></h:inputText>
+				<br></br>
+                                Logradouro: <h:inputText value="#{filialMB.endereco.logradouro}"></h:inputText>
+				<br></br>
+                                Numero: <h:inputText value="#{filialMB.endereco.numero}"></h:inputText>
+				<br></br>
+                                Referência: <h:inputText value="#{filialMB.endereco.referencia}"></h:inputText>
+				<h:commandButton value="Enviar"	action="#{filialMB.merge}"></h:commandButton>	
+                                <h:commandButton value="reset" action="#{filialMB.reset}"/>
+			</h:panelGrid>
+		</h:form>
+		
+		<h2>Lista de filiales</h2>
+                <h:form>
+		<h:dataTable value="#{filialMB.listaFiliais}" var="filial" border="1">
+			<h:column>
+				<f:facet name="header">Código</f:facet>
+				#{filial.codigo}
+			</h:column>			
+			<h:column>
+				<f:facet name="header">Nome</f:facet>
+				#{filial.nome}
+			</h:column>
+                        <h:column>
+				<f:facet name="header">CEP</f:facet>
+				#{filial.endereco.cep}
+			</h:column>
+                        <h:column>
+				<f:facet name="header">Bairro</f:facet>
+				#{filial.endereco.bairro}
+			</h:column>
+                        <h:column>
+				<f:facet name="header">Logradouro</f:facet>
+				#{filial.endereco.logradouro}
+			</h:column>
+                        <h:column>
+				<f:facet name="header">Número</f:facet>
+				#{filial.endereco.numero}
+			</h:column>
+                        <h:column>
+				<f:facet name="header">Referência</f:facet>
+				#{filial.endereco.referencia}
+			</h:column>
+                        <h:column>
+				<f:facet name="header">Atualizar</f:facet>                           
+                                <h:commandLink type="button" value="atualizar" actionListener="#{filialMB.setFilial(filial)}" />        
+			</h:column>
+                        <h:column>
+				<f:facet name="header">Deletar</f:facet>                           
+                                <h:commandLink type="button" value="deletar" actionListener="#{filialMB.deletar(filial)}" />        
+			</h:column>
+		</h:dataTable>
+                </h:form>
+	</h:body>
+</html>
