@@ -3,13 +3,21 @@ package control;
 import java.util.List;
 import model.dao.EntregadorDAO;
 import model.entidades.Entregador;
+import util.EntregadorException;
 
 /**
  *
  * @author Igor
  */
 public class FachadaEntregador {
-
+    public void verificaPreenchimento(Entregador e) throws EntregadorException {
+        if (e == null) {
+            throw new EntregadorException("Objeto não preenchido!");
+        } else if (e.getNome().isEmpty() || e.getNome().equals("")) {
+            throw new EntregadorException("Nome vazio!");
+        } 
+    }
+    
     public void inserir(Entregador entregador) {
         EntregadorDAO ed = new EntregadorDAO();     
         ed.inserir(entregador);

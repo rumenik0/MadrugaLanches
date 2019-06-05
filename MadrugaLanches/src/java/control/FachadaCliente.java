@@ -9,13 +9,30 @@ import interfaces.Entidade;
 import java.util.List;
 import model.dao.ClienteDAO;
 import model.entidades.Cliente;
+import util.ClienteException;
 
 /**
  *
  * @author Igor
  */
 public class FachadaCliente {
-
+    
+    public void verificaPreenchimento(Cliente c) throws ClienteException {
+        if (c == null) {
+            throw new ClienteException("Objeto não preenchido!");
+        } else if (c.getNome().isEmpty() || c.getNome().equals("")) {
+            throw new ClienteException("Nome vazio!");
+        } else if (c.getSenha().isEmpty() || c.getSenha().equals("")) {
+            throw new ClienteException("Senha vazia!");
+        } else if (c.getTelefone().isEmpty() || c.getTelefone().equals("")) {
+            throw new ClienteException("Telefone vazio!");
+        } else if (c.getEndereco() == null) {
+            throw new ClienteException("Endereço vazio!");
+        } else if (c.getDataInicio().equals(null) || c.getDataInicio().equals("")) {
+            throw new ClienteException("Data vazio!");
+        }
+    }
+    
     public void inserir(Cliente cliente) {
         ClienteDAO cd = new ClienteDAO();     
         cd.inserir(cliente);

@@ -21,8 +21,7 @@ public class ProdutoDAO extends AbstractDAO{
 	querySelect, 
 	Entidade.class);	
         
-        Collection<Entidade> resultSet = typedQuery.getResultList();
-	//List<Entidade> resultSet = typedQuery.getResultList();		
+        Collection<Entidade> resultSet = typedQuery.getResultList();	
 	return resultSet;
     } 
 }
