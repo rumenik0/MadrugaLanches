@@ -28,8 +28,8 @@ public class FachadaCliente {
             throw new ClienteException("Telefone vazio!");
         } else if (c.getEndereco() == null) {
             throw new ClienteException("Endereço vazio!");
-        } else if (c.getDataInicio().equals(null) || c.getDataInicio().equals("")) {
-            throw new ClienteException("Data vazio!");
+        } else if (c.getDataInicio()==null) {
+            throw new ClienteException("Data vazia!");
         }
     }
     
@@ -44,7 +44,13 @@ public class FachadaCliente {
     public void atualizar(Cliente cliente) {
         ClienteDAO cd = new ClienteDAO();     
         cd.alterarPorObjeto(cliente);
-    }    
+    }  
+    
+    public Cliente consultar(Cliente cliente){
+        ClienteDAO cd = new ClienteDAO();   
+        return (Cliente) cd.consultar(cliente);
+    }  
+    
     public List<Cliente> consultarTodosOsClientes(){
         ClienteDAO cd = new ClienteDAO();   
         return (List<Cliente>)(List<?>) cd.consultar();
@@ -53,7 +59,7 @@ public class FachadaCliente {
     public Cliente login(Cliente cliente){
         ClienteDAO cd = new ClienteDAO(); 
         Cliente retorno;
-        retorno = (Cliente) cd.login(cliente);
+        retorno = (Cliente) cd.consultar(cliente);
         if (retorno.getTelefone().equals(cliente.getTelefone())  && retorno.getSenha().equals(cliente.getSenha()))
             return retorno;
         else

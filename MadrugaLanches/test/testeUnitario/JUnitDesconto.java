@@ -40,4 +40,12 @@ public class JUnitDesconto {
         d.setValor(null);
         this.fachada.verificaPreenchimento(d);
     }
+    @Test
+    public void testeSucesso() throws DescontoException{
+        Desconto d  = new Desconto();
+        d.setMotivo("Dia do trabalhador");
+        d.setValor(1.5d);
+        assertEquals("Dia do trabalhador",d.getMotivo());
+        assertEquals("1.5",d.getValor().toString());
+    }
 }

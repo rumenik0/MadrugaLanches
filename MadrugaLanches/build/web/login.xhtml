@@ -17,7 +17,7 @@
         <h:outputLabel value="Senha" for="senha" />
         <h:inputSecret id="senha" label="Senha" value="#{clienteMB.cliente.senha}" required="true"/>
         <h:outputText />
-        <h:commandButton action="#{clienteMB.login}" value="Entrar" />
+        <h:commandButton id="btn" action="#{clienteMB.login}" value="Entrar" />
         </h:panelGrid>
         </h:form>
         <hr />

@@ -46,4 +46,13 @@ public class JUnitFilial {
         f.setEndereco(null);
         this.fachada.verificaPreenchimento(f);
     }
+    @Test
+    public void testeSucesso() throws FilialException{
+        Endereco e = new Endereco(51330270,"IBURA","CASA", 35, "Esquina com a Rua 24");
+        Filial f  = new Filial();
+        f.setNome("Ur2");
+        f.setEndereco(e);        
+        assertEquals("Ur2",f.getNome());
+        assertEquals(e,f.getEndereco());        
+    }
 }

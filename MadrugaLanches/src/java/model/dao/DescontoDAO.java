@@ -7,7 +7,9 @@ package model.dao;
 
 import interfaces.Entidade;
 import java.util.Collection;
+import java.util.List;
 import javax.persistence.TypedQuery;
+import model.entidades.Desconto;
 
 /**
  *
@@ -25,4 +27,15 @@ public class DescontoDAO extends AbstractDAO{
 	//List<Entidade> resultSet = typedQuery.getResultList();		
 	return resultSet;
     } 
+    public Desconto consultar(Desconto desconto){
+        String querySelect = "Select c From Desconto c where c.motivo = '"+desconto.getMotivo()+"'";		
+	TypedQuery<Entidade> typedQuery = 
+	InstanciaJPA.getEntityManager().createQuery(
+	querySelect, 
+	Entidade.class);	
+        
+	List<Entidade> resultSet = typedQuery.getResultList();	
+        Desconto retorno = (Desconto) resultSet.get(0);
+	return retorno;
+    }
 }

@@ -15,7 +15,20 @@ public class FachadaEntregador {
             throw new EntregadorException("Objeto não preenchido!");
         } else if (e.getNome().isEmpty() || e.getNome().equals("")) {
             throw new EntregadorException("Nome vazio!");
+        } else if (e.getTelefone().isEmpty() || e.getTelefone().equals("")) {
+            throw new EntregadorException("Telefone vazio!");
+        } else if(!soContemNumeros(e.getTelefone())){
+            System.out.println("Entrou aqui");
+            throw new EntregadorException("Telefone possui letras!");
         } 
+    }
+    public static boolean soContemNumeros(String texto) {
+        if(texto == null)
+            return false;
+        for (char letra : texto.toCharArray())
+            if(letra < '0' || letra > '9')
+                return false;
+        return true;         
     }
     
     public void inserir(Entregador entregador) {
@@ -34,4 +47,8 @@ public class FachadaEntregador {
         EntregadorDAO ed = new EntregadorDAO();   
         return (List<Entregador>)(List<?>) ed.consultar();
     }    
+    public Entregador consultar(Entregador entregador){
+        EntregadorDAO ed = new EntregadorDAO();   
+        return (Entregador) ed.consultar(entregador);
+    }  
 }

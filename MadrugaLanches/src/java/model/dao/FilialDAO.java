@@ -7,7 +7,9 @@ package model.dao;
 
 import interfaces.Entidade;
 import java.util.Collection;
+import java.util.List;
 import javax.persistence.TypedQuery;
+import model.entidades.Filial;
 
 /**
  *
@@ -25,4 +27,15 @@ public class FilialDAO extends AbstractDAO{
 	//List<Entidade> resultSet = typedQuery.getResultList();		
 	return resultSet;
     } 
+     public Filial consultar(Filial filial){
+        String querySelect = "Select c From Filial c where c.nome = '"+filial.getNome()+"'";		
+	TypedQuery<Entidade> typedQuery = 
+	InstanciaJPA.getEntityManager().createQuery(
+	querySelect, 
+	Entidade.class);	
+        
+	List<Entidade> resultSet = typedQuery.getResultList();	
+        Filial retorno = (Filial) resultSet.get(0);
+	return retorno;
+    }
 }

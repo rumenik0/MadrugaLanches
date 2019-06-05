@@ -7,7 +7,10 @@ package model.dao;
 
 import interfaces.Entidade;
 import java.util.Collection;
+import java.util.List;
 import javax.persistence.TypedQuery;
+import model.entidades.Cliente;
+import model.entidades.Produto;
 
 /**
  *
@@ -23,5 +26,17 @@ public class ProdutoDAO extends AbstractDAO{
         
         Collection<Entidade> resultSet = typedQuery.getResultList();	
 	return resultSet;
+    } 
+    
+    public Produto consultar(Produto produto){
+        String querySelect = "Select c From Produto c where c.nome = '"+ produto.getNome() +"'";		
+	TypedQuery<Entidade> typedQuery = 
+	InstanciaJPA.getEntityManager().createQuery(
+	querySelect, 
+	Entidade.class);	
+        
+	List<Entidade> resultSet = typedQuery.getResultList();	
+        Produto retorno = (Produto) resultSet.get(0);
+	return retorno;
     } 
 }

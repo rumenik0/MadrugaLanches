@@ -41,8 +41,23 @@ public class JUnitEntregador {
     @Test(expected=EntregadorException.class)
     public void testeTelefoneVazio() throws EntregadorException{
         Entregador e  = new Entregador();
-        e.setNome("");
-        e.setTelefone("983364139");
+        e.setNome("Igor");
+        e.setTelefone("");
         this.fachada.verificaPreenchimento(e);
+    }
+    @Test(expected=EntregadorException.class)
+    public void testeTelefoneLetra() throws EntregadorException{
+        Entregador e  = new Entregador();
+        e.setNome("Igor");
+        e.setTelefone("833a64139");
+        this.fachada.verificaPreenchimento(e);
+    }
+    @Test
+    public void testeSucesso() throws EntregadorException{
+        Entregador e  = new Entregador();
+        e.setNome("Igor");
+        e.setTelefone("83364139");
+        assertEquals("Igor",e.getNome());
+        assertEquals("83364139",e.getTelefone());
     }
 }

@@ -80,4 +80,20 @@ public class JUnitEndereco {
         e.setReferencia("");
         this.fachada.verificaPreenchimento(e);
     }
+    @Test
+    public void testeSucesso() throws EnderecoException{
+        Endereco e  = new Endereco();
+        e.setBairro("Ibura");
+        e.setCep(51280170);
+        e.setLogradouro("Rua Tocantinópolis");
+        e.setNumero(50);
+        e.setReferencia("Praça Dalva de Oliveira");
+        
+        assertEquals("Ibura",e.getBairro());
+        assertEquals("51280170",e.getCep().toString());
+        assertEquals("Rua Tocantinópolis",e.getLogradouro());
+        assertEquals("50",e.getNumero().toString());
+        assertEquals("Praça Dalva de Oliveira",e.getReferencia());
+        
+    }
 }

@@ -35,4 +35,8 @@ public class FachadaFilial {
         FilialDAO fd = new FilialDAO();   
         return (List<Filial>)(List<?>) fd.consultar();
     }    
+    public Filial consultar(Filial filial){
+        FilialDAO cd = new FilialDAO();   
+        return (Filial) cd.consultar(filial);
+    } 
 }

@@ -65,4 +65,20 @@ public class JUnitItem {
         i.setComentario("teste");
         this.fachada.verificaPreenchimento(i);        
     }
+    @Test
+    public void testeSucesso() throws ItemException{
+        Produto p = new Produto();
+        p.setDescricao("Recheio de pitu");
+        p.setNome("COXINHA DE pitu");
+        p.setPreco(3.00);
+        
+        Item i  = new Item();
+        i.setProduto(p);
+        i.setValorAtual(5.0d);
+        i.setComentario("teste");
+        
+        assertEquals(p,i.getProduto());
+        assertEquals("5.0",i.getValorAtual().toString());
+        assertEquals("teste",i.getComentario());        
+    }
 }

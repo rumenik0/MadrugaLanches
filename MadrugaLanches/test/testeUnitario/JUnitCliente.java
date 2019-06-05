@@ -41,6 +41,13 @@ public class JUnitCliente {
     }
     @Test(expected=ClienteException.class)
     public void testeNomeVazio() throws ClienteException{
+        Endereco e = new Endereco();
+        e.setBairro("ibura");
+        e.setCep(51280170);
+        e.setLogradouro("Rua tocantinópolis");
+        e.setNumero(50);
+        e.setReferencia("Praça dalva de oliveira");
+        
         Cliente c  = new Cliente();
         c.setCodigo(1);
         c.setNome("");
@@ -50,31 +57,81 @@ public class JUnitCliente {
     }
     @Test(expected=ClienteException.class)
     public void testeSenhaVazia() throws ClienteException{
+        Endereco e = new Endereco();
+        e.setBairro("ibura");
+        e.setCep(51280170);
+        e.setLogradouro("Rua tocantinópolis");
+        e.setNumero(50);
+        e.setReferencia("Praça dalva de oliveira");
+        
         Cliente c  = new Cliente();
         c.setCodigo(1);
         c.setNome("Igor");
         c.setSenha("");
         c.setTelefone("81983336444");
+        c.setEndereco(e);
         this.fachada.verificaPreenchimento(c);
     }
     @Test(expected=ClienteException.class)
     public void testeTelefoneVazio() throws ClienteException{
+        Endereco e = new Endereco();
+        e.setBairro("ibura");
+        e.setCep(51280170);
+        e.setLogradouro("Rua tocantinópolis");
+        e.setNumero(50);
+        e.setReferencia("Praça dalva de oliveira");
+        
         Cliente c  = new Cliente();
-        c.setCodigo(1);
         c.setNome("Igor");
         c.setSenha("123");
         c.setTelefone("");
+        c.setEndereco(e);
         this.fachada.verificaPreenchimento(c);
     }
     @Test(expected=ClienteException.class)
     public void testeDataVazia() throws ClienteException{
+        Endereco e = new Endereco();
+        e.setBairro("ibura");
+        e.setCep(51280170);
+        e.setLogradouro("Rua tocantinópolis");
+        e.setNumero(50);
+        e.setReferencia("Praça dalva de oliveira");
+        
         Cliente c  = new Cliente();
-        c.setCodigo(1);
         c.setDataInicio(null);
         c.setNome("Igor");
         c.setSenha("123");
         c.setTelefone("1234");
+        c.setEndereco(e);
         this.fachada.verificaPreenchimento(c);
+    }
+    @Test(expected=ClienteException.class)
+    public void testeEnderecoVazio() throws ClienteException{
+        Cliente c  = new Cliente();
+        c.setNome("Igor");
+        c.setSenha("123");
+        c.setTelefone("1234");
+        this.fachada.verificaPreenchimento(c);
+    }
+    @Test
+    public void testeSucesso() throws ClienteException{
+        Endereco e = new Endereco();
+        e.setBairro("ibura");
+        e.setCep(51280170);
+        e.setLogradouro("Rua tocantinópolis");
+        e.setNumero(50);
+        e.setReferencia("Praça dalva de oliveira");
+        
+        Cliente c  = new Cliente();
+        c.setNome("Igor");
+        c.setSenha("123");
+        c.setTelefone("983364139");
+        c.setEndereco(e);
+        
+        assertEquals("Igor",c.getNome());
+        assertEquals("123",c.getSenha());
+        assertEquals("983364139",c.getTelefone());
+        assertEquals(e,c.getEndereco());
     }
     /*
     @BeforeClass

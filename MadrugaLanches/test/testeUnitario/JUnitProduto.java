@@ -55,5 +55,14 @@ public class JUnitProduto {
         p.setPreco(null);
         this.fachada.verificaPreenchimento(p);
     }
-    
+    @Test
+    public void testeSucesso() throws ProdutoException{
+        Produto p  = new Produto();
+        p.setNome("coxinha");
+        p.setDescricao("coxinha de mario");
+        p.setPreco(0.5d);
+        assertEquals("coxinha",p.getNome());
+        assertEquals("coxinha de mario",p.getDescricao());        
+        assertEquals("0.5",p.getPreco().toString());
+    }
 }

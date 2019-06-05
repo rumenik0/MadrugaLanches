@@ -38,6 +38,12 @@ public class FachadaProduto {
         ProdutoDAO pd = new ProdutoDAO();     
         pd.alterarPorObjeto(produto);
     }    
+    
+    public Produto consultar(Produto produto){
+        ProdutoDAO pd = new ProdutoDAO();     
+        return pd.consultar(produto);
+    }
+    
     public List<Produto> consultarTodosOsProdutos(){
         ProdutoDAO pd = new ProdutoDAO();   
         return (List<Produto>)(List<?>) pd.consultar();

@@ -27,7 +27,17 @@ public class ClienteDAO extends AbstractDAO{
 	//List<Entidade> resultSet = typedQuery.getResultList();		
 	return resultSet;
     } 
-    
+    public Cliente consultar(Cliente cliente){
+        String querySelect = "Select c From Cliente c where c.telefone = '"+cliente.getTelefone()+"'";		
+	TypedQuery<Entidade> typedQuery = 
+	InstanciaJPA.getEntityManager().createQuery(
+	querySelect, 
+	Entidade.class);	
+        
+	List<Entidade> resultSet = typedQuery.getResultList();	
+        Cliente retorno = (Cliente) resultSet.get(0);
+	return retorno;
+    }
     public Cliente login(Cliente cliente){
         String querySelect = "Select c From Cliente c where c.telefone = '"+cliente.getTelefone()+"'";		
 	TypedQuery<Entidade> typedQuery = 

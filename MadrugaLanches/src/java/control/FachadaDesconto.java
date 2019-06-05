@@ -36,4 +36,8 @@ public class FachadaDesconto {
         DescontoDAO dd = new DescontoDAO();   
         return (List<Desconto>)(List<?>) dd.consultar();
     }    
+    public Desconto consultar(Desconto desconto){
+        DescontoDAO cd = new DescontoDAO();   
+        return (Desconto) cd.consultar(desconto);
+    } 
 }

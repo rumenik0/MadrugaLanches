@@ -7,7 +7,12 @@ import org.junit.runners.Suite;
 @RunWith(Suite.class)
 
 @Suite.SuiteClasses({
-	
+	JUnitIntegracaoCliente.class,
+        JUnitIntegracaoDesconto.class,
+        JUnitIntegracaoEndereco.class,
+        JUnitIntegracaoEntregador.class,
+        JUnitIntegracaoFilial.class,
+        JUnitIntegracaoProduto.class
 })
 
 

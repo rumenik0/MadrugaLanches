@@ -3,13 +3,16 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/rumenik.andrade/Documents/NetBeansProjects/MadrugaLanches/src/java/model/entidades/Cliente.java</file>
-            <file>file:/C:/Users/rumenik.andrade/Documents/NetBeansProjects/MadrugaLanches/test/madrugaproject/TesteCliente.java</file>
+            <file>file:/C:/Users/rumenik.andrade/Documents/NetBeansProjects/MadrugaLanches/test/TesteFuncional/TesteFuncionalCliente.java</file>
+            <file>file:/C:/Users/rumenik.andrade/Documents/NetBeansProjects/MadrugaLanches/test/testeUnitario/JUnitCliente.java</file>
+            <file>file:/C:/Users/rumenik.andrade/Documents/NetBeansProjects/MadrugaLanches/test/testeIntegracao/JUnitIntegracaoCliente.java</file>
             <file>file:/C:/Users/rumenik.andrade/Documents/NetBeansProjects/MadrugaLanches/src/java/control/FachadaCliente.java</file>
-            <file>file:/C:/Users/rumenik.andrade/Documents/NetBeansProjects/MadrugaLanches/web/index.html</file>
-            <file>file:/C:/Users/rumenik.andrade/Documents/NetBeansProjects/MadrugaLanches/src/java/managedbean/ClienteMB.java</file>
-            <file>file:/C:/Users/rumenik.andrade/Documents/NetBeansProjects/MadrugaLanches/test/madrugaproject/JUnitCliente.java</file>
-            <file>file:/C:/Users/rumenik.andrade/Documents/NetBeansProjects/MadrugaLanches/web/cliente.xhtml</file>
+            <file>file:/C:/Users/rumenik.andrade/Documents/NetBeansProjects/MadrugaLanches/test/TesteFuncional/TesteFuncionalSuite.java</file>
+            <file>file:/C:/Users/rumenik.andrade/Documents/NetBeansProjects/MadrugaLanches/test/testeIntegracao/TesteIntegracaoSuite.java</file>
+            <file>file:/C:/Users/rumenik.andrade/Documents/NetBeansProjects/MadrugaLanches/test/testeUnitario/TesteUnitarioSuite.java</file>
+            <file>file:/C:/Users/rumenik.andrade/Documents/NetBeansProjects/MadrugaLanches/test/testeIntegracao/JUnitIntegracaoProduto.java</file>
+            <file>file:/C:/Users/rumenik.andrade/Documents/NetBeansProjects/MadrugaLanches/test/madrugaproject/TesteMain.java</file>
+            <file>file:/C:/Users/rumenik.andrade/Documents/NetBeansProjects/MadrugaLanches/test/TesteFuncional/TesteFuncionalProduto.java</file>
         </group>
     </open-files>
 </project-private>
